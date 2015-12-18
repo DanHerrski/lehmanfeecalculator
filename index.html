@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='style.css'/>
+	<script src='script.js'></script>
+</head>
+<body>
+<form class="bootstrap-frm">
+<h1>Lehman Fee Calculator
+<span>Please select Single or Double Lehman, fill out the EBITDA and EBITDA Multiple and click Calc Fee to determine your brokerage/referral fee based upon the Lehman Formula (<a href="https://en.wikipedia.org/wiki/Lehman_Formula">Learn more on Wikipedia</a>).</span></h1>
+<label><span>
+Lehman Type:</span><select id="lehman" name="lehman">
+    <option value="Single Lehman">Single</option>
+    <option value="Double Lehman">Double</option>
+   </select>
+   </label>
+   <label>
+    <span>EBITDA: $</span><input type="text" id="ebitda" name="ebitda" value="3" onchange="calc()"/>
+    </label>
+    <label>
+    <span>EBITDA Multiple: </span>
+    <input type="text" id="mult" name="mult" value = "5" onchange="calc()"/>x</label>
+    <label>
+    <span> &nbsp;</span>
+<input type="button" class="button" value="Calc Fee" onclick="calc()" />
+</label>
+<div id="Results">
+<div id="TEVarea">With a TEV of:<br/>
+<div class="number">$<span id="tev" name="tev"/> million</div>
+</div>
+<div id="FEEarea">
+Your Fee would be: <br/><div class="number">$<span id="fee" name="fee"/></div><br/>
+</div>
+</div>
+</form>
+<script>calc()</script>
+
+
+<!-- This works with other JS Code
+<input value="5" id="tev" name="tev" type="text"/>
+<input type="button" value="clickme" onclick="calc();"/>
+<p>
+The total you will receive is:
+</p>
+<p>
+<span id="result"></span>
+</p>
+-->
+</body>
+</html>
