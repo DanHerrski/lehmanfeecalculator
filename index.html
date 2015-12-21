@@ -19,7 +19,7 @@
 <h1>Lehman Fee Calculator
 <span>Please select Single or Double Lehman, fill out the EBITDA and EBITDA Multiple and click Calc Fee to determine your brokerage/referral fee based upon the Lehman Formula (<a href="https://en.wikipedia.org/wiki/Lehman_Formula">Learn more on Wikipedia</a>).</span></h1>
 <label><span>
-Lehman Type:</span><select id="lehman" name="lehman">
+Lehman Type:</span><select id="lehman" name="lehman" onchange="calc()">
     <option value="Single Lehman">Single</option>
     <option value="Double Lehman">Double</option>
    </select>
