@@ -8,7 +8,7 @@ var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
 var isIE = /*@cc_on!@*/false || !!document.documentMode;   // At least IE6
 
 if (isFirefox){
-  var sign = window.prompt('Apologies, we have been having issues with Firefox and this Script. Please use IE or Chrome for the time being.','Okay')  
+  window.alert('Apologies, we have been having issues with Firefox and this Script. Please use IE or Chrome for the time being.')  
 };
 
 
