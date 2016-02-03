@@ -132,6 +132,13 @@
     text-align:center;
 }
 
+.DHref1{
+    width: 25%;
+    margin:5px auto 0px auto;
+    font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align:left;
+}
+
 .bottomRef{
     position:relative;
     bottom: 20px;
