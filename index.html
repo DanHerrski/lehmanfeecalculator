@@ -21,7 +21,7 @@
 <div id="formcontainer">
 <form class="bootstrap-frm">
 <h1>Lehman Fee Calculator
-<span>Please select Single or Double Lehman, fill out the EBITDA and EBITDA Multiple and click Calc Fee to determine your brokerage/referral fee based upon the Lehman Formula (<a href="https://en.wikipedia.org/wiki/Lehman_Formula">Learn more on Wikipedia</a>).</span></h1>
+<span>Please select Single or Double Lehman, fill out the EBITDA (in millions) and EBITDA Multiple and click Calc Fee to determine your brokerage/referral fee based upon the Lehman Formula (<a href="https://en.wikipedia.org/wiki/Lehman_Formula">Learn more on Wikipedia</a>).</span></h1>
 <label><span>
 Lehman Type:</span><select id="lehman" name="lehman" onchange="calc()">
     <option value="Single Lehman">Single</option>
@@ -29,7 +29,7 @@ Lehman Type:</span><select id="lehman" name="lehman" onchange="calc()">
    </select>
    </label>
    <label>
-    <span>EBITDA: $</span><input type="text" id="ebitda" name="ebitda" value="3" onchange="calc()"/>
+    <span>EBITDA: $</span><input type="text" id="ebitda" name="ebitda" value="3" onchange="calc()"/>million
     </label>
     <label>
     <span>EBITDA Multiple: </span>
