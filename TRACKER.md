@@ -9,6 +9,7 @@
 - **Project Start:** January 2026
 - **Current Phase:** Planning & Foundation
 - **Sprint:** Sprint 0 (Planning)
+- **Live URL:** https://danherrski.github.io/lehmanfeecalculator/
 - **Team Velocity:** TBD
 - **Total Tasks:** 47
 - **Completed:** 2
@@ -52,7 +53,7 @@
 - [ ] Set up ESLint + Prettier
 - [ ] Configure Vitest for testing
 - [ ] Set up GitHub Actions CI/CD
-- [ ] Configure Vercel/Netlify deployment
+- [ ] Configure GitHub Actions for automated gh-pages deployment
 - [ ] Set up error boundary components
 
 #### Core Features
@@ -251,9 +252,10 @@
 ## 📈 Metrics Dashboard
 
 ### Current Metrics (Baseline)
-- **Users:** 0 (pre-launch)
-- **Page Views:** N/A
-- **Calculations:** N/A
+- **Live Site:** https://danherrski.github.io/lehmanfeecalculator/
+- **Users:** Unknown (no analytics yet)
+- **Page Views:** N/A (no tracking)
+- **Calculations:** N/A (no tracking)
 - **Revenue:** $0
 - **Test Coverage:** 0%
 - **Lighthouse Score:** Not yet measured
@@ -278,7 +280,15 @@
 
 ## 🚀 Deployment History
 
-*No deployments yet*
+### Legacy Deployment (Current)
+- **Date:** Unknown (pre-existing)
+- **Platform:** GitHub Pages
+- **URL:** https://danherrski.github.io/lehmanfeecalculator/
+- **Version:** Legacy vanilla JS version
+- **Status:** ✅ Live
+
+### Upcoming Deployments
+*Modern React version - TBD*
 
 ---
 
@@ -357,7 +367,7 @@
 - **Build Tool:** Vite selected over Create React App for speed
 - **Styling:** Tailwind CSS for rapid UI development
 - **Testing:** Vitest for fast unit tests, Playwright for E2E
-- **Hosting:** Vercel for easy deployment and performance
+- **Hosting:** GitHub Pages (maintain current free hosting, upgrade later if needed)
 
 ### Product Decisions
 - **Monetization:** Freemium model with premium features
