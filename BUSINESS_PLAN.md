@@ -73,7 +73,7 @@ Provide investment professionals with an accurate, easy-to-use, and feature-rich
 - ✅ Create real-time calculation
 - ✅ Add fee tier visualization (charts)
 - ✅ Mobile-responsive design
-- ✅ Deploy to production (Vercel/Netlify)
+- ✅ Deploy to production (GitHub Pages with Actions)
 
 **Success Metrics:**
 - 100% test coverage on calculation logic
@@ -197,7 +197,8 @@ Provide investment professionals with an accurate, easy-to-use, and feature-rich
 
 ### Current State
 - Vanilla HTML/CSS/JavaScript
-- Static files
+- Static files hosted on GitHub Pages
+- Live at: https://danherrski.github.io/lehmanfeecalculator/
 - No build process
 - Client-side only
 
@@ -206,15 +207,15 @@ Provide investment professionals with an accurate, easy-to-use, and feature-rich
 - Vite build system
 - Tailwind CSS
 - Vitest for testing
-- Vercel/Netlify hosting
-- GitHub Actions CI/CD
+- GitHub Pages hosting (keep current setup)
+- GitHub Actions CI/CD (automated gh-pages deployment)
 
 ### Future State (Phase 4)
 - Next.js (full-stack)
 - PostgreSQL database
 - Prisma ORM
 - NextAuth for authentication
-- Vercel serverless functions
+- Vercel/Netlify serverless functions (migrate from GitHub Pages)
 - Redis for caching
 - Sentry for error tracking
 
@@ -284,13 +285,13 @@ Provide investment professionals with an accurate, easy-to-use, and feature-rich
 ### Tools & Services Budget
 
 **Monthly Costs:**
-- Hosting (Vercel): $0-20
-- Domain: $1/month
+- Hosting (GitHub Pages): $0 (current)
+- Custom Domain (optional): $1/month
 - Analytics (PostHog): $0-50
 - Email (SendGrid): $0-15
-- Database (Supabase/PlanetScale): $0-29
-- Error Tracking (Sentry): $0-26
-- **Total: $0-141/month** (scales with usage)
+- Database (Supabase/PlanetScale): $0-29 (Phase 3+)
+- Error Tracking (Sentry): $0-26 (Phase 2+)
+- **Total: $0-121/month** (scales with usage)
 
 ---
 
