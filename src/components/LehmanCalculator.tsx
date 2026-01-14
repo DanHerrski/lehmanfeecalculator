@@ -290,12 +290,26 @@ export function LehmanCalculator() {
                   <h4 className="mt-4 text-xl font-bold text-gray-900">
                     Dan Herr
                   </h4>
-                  <p className="mt-1 text-sm font-medium text-blue-600">
-                    Deal Sourcing Engineer
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-gray-600">
-                    Investment banker specializing in M&A advisory and deal
-                    origination
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    The Deal Sourcing Engineer | CEO of{' '}
+                    <a
+                      href="https://www.tahoeequity.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      Tahoe Equity
+                    </a>{' '}
+                    &{' '}
+                    <a
+                      href="https://www.acqwired.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      Acqwired
+                    </a>{' '}
+                    | Unlocking non-linear growth in Private Equity
                   </p>
 
                   {/* Social Links */}
