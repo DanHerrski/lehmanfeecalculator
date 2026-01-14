@@ -58,22 +58,13 @@ export function LehmanCalculator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 px-4 py-6 md:py-12">
       <div className="mx-auto max-w-7xl">
-        {/* Header - Compact */}
-        <div className="mb-6 text-center md:mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
+        {/* Header - Minimal */}
+        <div className="mb-8 text-center md:mb-12">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
             Lehman Fee Calculator
           </h1>
-          <p className="mt-2 text-sm text-gray-600 md:text-base">
-            Calculate M&A advisory fees based on the{' '}
-            <a
-              href="https://en.wikipedia.org/wiki/Lehman_Formula"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              Lehman Formula
-            </a>
-            . <span className="font-semibold">Just remember: 5-4-3-2-1%</span>
+          <p className="mt-3 text-sm text-gray-500">
+            M&A advisory fee calculations
           </p>
         </div>
 
@@ -82,8 +73,8 @@ export function LehmanCalculator() {
           {/* Left: Calculator */}
           <div className="space-y-4">
             {/* Calculator Card - Compact */}
-            <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
-              <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl bg-white p-8 shadow-lg md:p-10">
+              <div className="grid gap-6 md:grid-cols-3">
                 {/* Lehman Type */}
                 <div>
                   <label
@@ -166,39 +157,80 @@ export function LehmanCalculator() {
                 </div>
               </div>
 
-              {/* Results - Inline */}
+              {/* Results - Inline with Visual Breakdown */}
               {result && (
-                <div className="mt-6 grid gap-3 border-t border-gray-200 pt-6 md:grid-cols-2">
-                  {/* TEV */}
-                  <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 p-4">
-                    <p className="text-xs font-medium uppercase tracking-wide text-blue-900">
-                      Total Enterprise Value
-                    </p>
-                    <p className="mt-1 text-2xl font-bold text-blue-900">
-                      ${result.formattedTev}M
-                    </p>
-                  </div>
+                <div className="mt-8 space-y-6 border-t border-gray-200 pt-8">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {/* TEV */}
+                    <div className="rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 p-5">
+                      <p className="text-xs font-medium uppercase tracking-wide text-blue-900">
+                        Total Enterprise Value
+                      </p>
+                      <p className="mt-2 text-3xl font-bold text-blue-900">
+                        ${result.formattedTev}M
+                      </p>
+                    </div>
 
-                  {/* Fee */}
-                  <div className="rounded-lg bg-gradient-to-br from-green-50 to-emerald-100 p-4">
-                    <p className="text-xs font-medium uppercase tracking-wide text-green-900">
-                      Your Fee
-                    </p>
-                    <p className="mt-1 text-2xl font-bold text-green-900">
-                      ${result.formattedFee}
-                    </p>
+                    {/* Fee with Visual Tier Breakdown */}
+                    <div className="rounded-lg bg-gradient-to-br from-green-50 to-emerald-100 p-5">
+                      <p className="text-xs font-medium uppercase tracking-wide text-green-900">
+                        Your Fee
+                      </p>
+                      <p className="mt-2 text-3xl font-bold text-green-900">
+                        ${result.formattedFee}
+                      </p>
+
+                      {/* Subtle Tier Visualization */}
+                      <div className="mt-3 space-y-1">
+                        <p className="text-xs text-green-700">Breakdown:</p>
+                        <div className="flex h-2 overflow-hidden rounded-full bg-green-200">
+                          {result.feeBreakdown.map((tier, index) => {
+                            const percentage =
+                              result.fee > 0
+                                ? (tier.amount * 1000000 / result.fee) * 100
+                                : 0;
+                            const colors = [
+                              'bg-emerald-600',
+                              'bg-emerald-500',
+                              'bg-green-500',
+                              'bg-green-400',
+                              'bg-green-300',
+                            ];
+                            return percentage > 0 ? (
+                              <div
+                                key={tier.tier}
+                                className={`${colors[index]} transition-all`}
+                                style={{ width: `${percentage}%` }}
+                                title={`Tier ${tier.tier}: $${(
+                                  tier.amount * 1000000
+                                ).toLocaleString()}`}
+                              />
+                            ) : null;
+                          })}
+                        </div>
+                        <p className="text-xs text-green-600">
+                          {result.feeBreakdown.filter((t) => t.amount > 0)
+                            .length}{' '}
+                          tier{result.feeBreakdown.filter((t) => t.amount > 0)
+                            .length !== 1
+                            ? 's'
+                            : ''}{' '}
+                          applied
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Fee Breakdown - Collapsible/Compact */}
+            {/* Fee Breakdown - Collapsible/Subtle */}
             {result && (
-              <details className="group rounded-xl bg-white shadow-lg">
-                <summary className="flex cursor-pointer items-center justify-between p-4 font-semibold text-gray-900 transition hover:bg-gray-50">
-                  <span className="text-sm">📊 Fee Breakdown by Tier</span>
+              <details className="group rounded-xl border border-gray-200 bg-white shadow-sm">
+                <summary className="flex cursor-pointer items-center justify-between p-4 text-sm font-medium text-gray-700 transition hover:bg-gray-50">
+                  <span>Detailed tier breakdown</span>
                   <svg
-                    className="h-5 w-5 transition group-open:rotate-180"
+                    className="h-4 w-4 text-gray-400 transition group-open:rotate-180"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -212,7 +244,7 @@ export function LehmanCalculator() {
                   </svg>
                 </summary>
                 <div className="border-t border-gray-100 p-4">
-                  <div className="overflow-hidden rounded-lg border border-gray-200">
+                  <div className="overflow-hidden">
                     <table className="min-w-full divide-y divide-gray-200 text-sm">
                       <thead className="bg-gray-50">
                         <tr>
@@ -366,53 +398,57 @@ export function LehmanCalculator() {
               </div>
             </div>
 
-            {/* Quick Reference Card */}
-            <div className="mt-4 rounded-xl border-2 border-blue-200 bg-blue-50 p-4">
-              <h5 className="mb-3 text-xs font-bold uppercase tracking-wide text-blue-900">
-                📝 Quick Reference
+            {/* Quick Reference Card - Professional */}
+            <div className="mt-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+              <h5 className="mb-4 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Quick Reference
               </h5>
-              <div className="space-y-3 text-xs">
+              <div className="space-y-4 text-xs text-gray-700">
                 {/* Formula */}
                 <div>
-                  <p className="font-semibold text-blue-900">
+                  <p className="font-medium text-gray-900">
                     Single Lehman: 5-4-3-2-1%
                   </p>
-                  <p className="font-semibold text-blue-900">
+                  <p className="font-medium text-gray-900">
                     Double Lehman: 10-8-6-4-2%
                   </p>
-                  <p className="mt-1 text-blue-700">
-                    On 1st $1M, 2nd $1M, 3rd $1M, 4th $1M, $1M+
+                  <p className="mt-1.5 text-gray-500">
+                    Applied on each $1M increment
                   </p>
                 </div>
 
                 {/* Mental Math Shortcuts */}
-                <div className="border-t border-blue-200 pt-3">
-                  <p className="mb-2 font-semibold text-blue-900">
-                    💡 Mental Math Shortcuts:
+                <div className="border-t border-gray-200 pt-4">
+                  <p className="mb-2 font-medium text-gray-900">
+                    Mental Math Shortcuts
                   </p>
-                  <ul className="ml-4 list-disc space-y-1 text-blue-800">
-                    <li>
-                      <span className="font-medium">$150k</span> for first $5M
-                      TEV + <span className="font-medium">1%</span> of balance
-                    </li>
-                    <li>
-                      <span className="font-medium">$200k</span> for first $10M
-                      TEV + <span className="font-medium">1%</span> of balance
-                    </li>
-                  </ul>
+                  <div className="space-y-1.5 text-gray-600">
+                    <p>
+                      <span className="font-medium text-gray-900">$150k</span>{' '}
+                      for first $5M TEV +{' '}
+                      <span className="font-medium text-gray-900">1%</span> of
+                      balance
+                    </p>
+                    <p>
+                      <span className="font-medium text-gray-900">$200k</span>{' '}
+                      for first $10M TEV +{' '}
+                      <span className="font-medium text-gray-900">1%</span> of
+                      balance
+                    </p>
+                  </div>
                 </div>
 
                 {/* Future Features */}
-                <div className="border-t border-blue-200 pt-3">
-                  <p className="text-blue-700">
+                <div className="border-t border-gray-200 pt-4">
+                  <p className="text-gray-600">
                     Want flat % or Reverse Lehman options?{' '}
                     <a
                       href="http://danherr.com/2015/12/18/lehman-fee-calculator/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 underline hover:text-blue-800"
+                      className="font-medium text-blue-600 hover:text-blue-700 hover:underline"
                     >
-                      Let me know! →
+                      Let me know
                     </a>
                   </p>
                 </div>
