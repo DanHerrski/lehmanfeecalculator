@@ -290,12 +290,26 @@ export function LehmanCalculator() {
                   <h4 className="mt-4 text-xl font-bold text-gray-900">
                     Dan Herr
                   </h4>
-                  <p className="mt-1 text-sm font-medium text-blue-600">
-                    Deal Sourcing Engineer
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-gray-600">
-                    Investment banker specializing in M&A advisory and deal
-                    origination
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                    The Deal Sourcing Engineer | CEO of{' '}
+                    <a
+                      href="https://www.tahoeequity.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      Tahoe Equity
+                    </a>{' '}
+                    &{' '}
+                    <a
+                      href="https://www.acqwired.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      Acqwired
+                    </a>{' '}
+                    | Unlocking non-linear growth in Private Equity
                   </p>
 
                   {/* Social Links */}
@@ -354,21 +368,54 @@ export function LehmanCalculator() {
 
             {/* Quick Reference Card */}
             <div className="mt-4 rounded-xl border-2 border-blue-200 bg-blue-50 p-4">
-              <h5 className="mb-2 text-xs font-bold uppercase tracking-wide text-blue-900">
+              <h5 className="mb-3 text-xs font-bold uppercase tracking-wide text-blue-900">
                 📝 Quick Reference
               </h5>
-              <div className="space-y-1 text-xs text-blue-800">
-                <p>
-                  <span className="font-semibold">Single Lehman:</span>{' '}
-                  5-4-3-2-1%
-                </p>
-                <p>
-                  <span className="font-semibold">Double Lehman:</span>{' '}
-                  10-8-6-4-2%
-                </p>
-                <p className="pt-1 text-blue-600">
-                  On first $1M, second $1M, third $1M, fourth $1M, and $1M+
-                </p>
+              <div className="space-y-3 text-xs">
+                {/* Formula */}
+                <div>
+                  <p className="font-semibold text-blue-900">
+                    Single Lehman: 5-4-3-2-1%
+                  </p>
+                  <p className="font-semibold text-blue-900">
+                    Double Lehman: 10-8-6-4-2%
+                  </p>
+                  <p className="mt-1 text-blue-700">
+                    On 1st $1M, 2nd $1M, 3rd $1M, 4th $1M, $1M+
+                  </p>
+                </div>
+
+                {/* Mental Math Shortcuts */}
+                <div className="border-t border-blue-200 pt-3">
+                  <p className="mb-2 font-semibold text-blue-900">
+                    💡 Mental Math Shortcuts:
+                  </p>
+                  <ul className="ml-4 list-disc space-y-1 text-blue-800">
+                    <li>
+                      <span className="font-medium">$150k</span> for first $5M
+                      TEV + <span className="font-medium">1%</span> of balance
+                    </li>
+                    <li>
+                      <span className="font-medium">$200k</span> for first $10M
+                      TEV + <span className="font-medium">1%</span> of balance
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Future Features */}
+                <div className="border-t border-blue-200 pt-3">
+                  <p className="text-blue-700">
+                    Want flat % or Reverse Lehman options?{' '}
+                    <a
+                      href="http://danherr.com/2015/12/18/lehman-fee-calculator/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 underline hover:text-blue-800"
+                    >
+                      Let me know! →
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
